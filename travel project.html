@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1><center>ThePlaces I traveled</center></h1>
+
+
+<div class="topnav" id="myTopnav" style="width:1000px;" align="middle">
+   <a href="travel project.html">Home</a>
+  <a href="abashiri.html">Abashiri Prison Museum</a>
+  <a href="tokyoskytree.html">Tokyo Skytree</a>
+  <a href="Tomioka.html">Tomioka Silk Mill</a>
+  <a href="himeji.html">Himeji Castle</a>
+  <a href="Genbaku.html">Hiroshima Peace Memorial</a>
+<a href="img cred.html">credits</a>
+<style>
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+	margin: auto;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #FF8C00;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #FF4500;
+    color: orange;
+}
+</style>
+</div>
+
+
+
+<div class="map" id="googleMap" style="width:1000px;height:700px;margin:auto;">
+<script>
+function myMap() {
+	var mapCenter =new google.maps.LatLng(38.735364,137.0346127)
+	var mapProp= {
+		center:mapCenter,
+		zoom:5,
+		mapTypeId: 'satellite'
+	};
+	var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+
+
+	var abashiri=new google.maps.LatLng(43.9960613,144.2285155);
+	var skytree=new google.maps.LatLng(35.7100427,139.8106853);
+	var genbaku=new google.maps.LatLng(34.3952195,132.4537089);
+	var himejijou=new google.maps.LatLng(34.8381611,134.6925336)
+	var tomioka=new google.maps.LatLng(36.2553581,138.890483)
+	
+	var abashiriMarker= new google.maps.Marker({position:abashiri, icon:'marker.png'});
+	var skytreeMarker= new google.maps.Marker({position:skytree, icon:'marker.png'});
+	var genbakuMarker=new google.maps.Marker({position:genbaku, icon:'marker.png'});
+	var himejijouMarker=new google.maps.Marker({position:himejijou, icon:'marker.png'});
+	var tomiokaMarker=new google.maps.Marker({position:tomioka, icon:'marker.png'});
+	
+
+	abashiriMarker.setMap(map)
+	genbakuMarker.setMap(map)
+	skytreeMarker.setMap(map)
+	himejijouMarker.setMap(map)
+	tomiokaMarker.setMap(map)
+	
+
+	var myTrip = [abashiri,skytree,tomioka,himejijou,genbaku];
+	var flightPath = new google.maps.Polyline({
+	  path:myTrip,
+	  strokeColor:"#fc3c01",
+	  strokeOpacity:1,
+	  strokeWeight:2
+	});
+	flightPath.setMap(map)
+
+}
+
+</script>
+
+
+
+</div> 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqQp1kuOI_MnPQIF3RzW4U5PXHJfFWkw4&callback=myMap"></script>
+
+</body>
+</html>
